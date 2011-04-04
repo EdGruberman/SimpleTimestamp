@@ -1,0 +1,4 @@
+name: SimpleTimestamp
+main: edgruberman.bukkit.simpletimestamp.Main
+version: %VERSION%
+author: EdGruberman (ed@rjump.com)

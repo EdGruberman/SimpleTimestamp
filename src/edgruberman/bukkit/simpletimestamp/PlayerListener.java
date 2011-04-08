@@ -1,7 +1,7 @@
 package edgruberman.bukkit.simpletimestamp;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Date;
 
 import org.bukkit.event.player.PlayerChatEvent;
 
@@ -20,7 +20,7 @@ public class PlayerListener extends org.bukkit.event.player.PlayerListener {
         String format = this.main.getConfiguration().getString("format")
             .replace(
                 "TIMESTAMP"
-                , (new SimpleDateFormat(this.main.getConfiguration().getString("timestamp")).format(Calendar.getInstance().getTime()))
+                , (new SimpleDateFormat(this.main.getConfiguration().getString("timestamp")).format(new Date()))
             )
             .replace(
                 "FORMAT"

@@ -19,15 +19,13 @@ public class Communicator {
     
     /**
      * Configures logging to display more or less than the default of INFO.</br>
-     * </br> 
-     * <b>Known Bugs:</b></br>
-     * Logging output to file in Minecraft does not include CONFIG prefix despite it displaying in the console.
-     * 
-     * @param level = INFO (default)
+     * <b>Known Bug:</b> Logging output to file in Minecraft does not include level prefix despite it displaying in the console.
+     * @param level Minimum logging level to show.
      */
     public void setLogLevel(Level level) {
+        // Only set the parent handler lower if necessary, otherwise leave it alone for other configurations that have set it.
         for (Handler h : this.logger.getParent().getHandlers()) {
-            h.setLevel(level);
+            if (h.getLevel().intValue() > level.intValue()) h.setLevel(level);
         }
         this.logger.setLevel(level);
     }
